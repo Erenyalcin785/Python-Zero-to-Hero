@@ -6,11 +6,7 @@ import random
 
 DB_PATH = "C:/Users/MONSTER/Desktop/veritabani.json"
 
-
-# =====================
 #  VERİYİ YÜKLE / KAYDET
-# =====================
-
 def veriyi_yukle():
     try:
         with open(DB_PATH, "r", encoding="utf-8") as f:
@@ -31,12 +27,7 @@ def veriyi_kaydet(data):
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 
-# =====================
 #  KONTROL FONKSİYONLARI
-# =====================
-
-
-
 def kullanici_adi_var_mi(data, kullanici_adi):
     for k in data["kullanicilar"]:
         if k["kullanici_adi"] == kullanici_adi:
@@ -48,17 +39,13 @@ def aktivasyon_kodu_olustur():
     return str(random.randint(1000, 9999))
 
 
-# =====================
 #  KAYIT OL / GİRİŞ
-# =====================
-
 def kayit_ol(data):
     print("\n--- KAYIT OL ---")
 
     while True:
         kullanici_adi = input("Kullanıcı adı: ").strip()
 
-        # Boş mu?
         if not kullanici_adi:
             print("HATA: Kullanıcı adı boş olamaz.")
             continue
@@ -149,7 +136,7 @@ def kayit_ol(data):
             else:
                 print("Tekrar deneyebilirsin.\n")
 
-    # ----- TÜM BİLGİLER TAM, KAYDI YAP -----
+    # TÜM BİLGİLER TAM, KAYDI YAP 
     yeni = {
         "kullanici_adi": kullanici_adi,
         "sifre": sifre,
@@ -176,11 +163,7 @@ def giris_yap(data):
     print("HATA: Kullanıcı adı veya şifre yanlış.")
     return None
 
-
-# =====================
 #   TO-DO (GÖREV)
-# =====================
-
 def gorev_id_olustur(data):
     mevcut = []
     for g in data["gorevler"]:
@@ -290,18 +273,14 @@ def todo_menu(data, kullanici):
         else:
             print("HATA: Yanlış seçim.")
 
-
-# =====================
 #   TICKET (DESTEK)
-# =====================
-
 def ticket_id_olustur(data):
     # Önce mevcut ID'leri alalım
     mevcut = []
     for t in data["ticketlar"]:
         mevcut.append(t["id"])
 
-    # Şimdi yeni ID oluşturmaya çalışalım
+    # Şimdi yeni ID 
     while True:
         yeni = random.randint(1, 999999)
 
@@ -339,19 +318,14 @@ def ticketlarimi_listele(data, kullanici):
 
     liste = []
 
-    # Ticketlar arasında dolaşıyoruz
     for t in data["ticketlar"]:
-        # Ticketın sahibi giriş yapan kullanıcı mı?
         if t["sahip"] == kullanici:
-            # Öyleyse listeye ekliyoruz
             liste.append(t)
-
-    # Eğer liste boşsa demek ki hiç ticket yok
+            
     if len(liste) == 0:
         print("Ticket yok.")
         return
 
-    # Buraya geldiysek ticketlar var, hepsini yazdırıyoruz
     for t in liste:
         print("ID:", t["id"], "| Konu:", t["konu"], "| Durum:", t["durum"])
         print("Açıklama:", t["aciklama"])
@@ -400,11 +374,7 @@ def ticket_menu(data, kullanici):
         else:
             print("HATA: Yanlış seçim.")
 
-
-# =====================
 #   ANA MENÜLER
-# =====================
-
 def kullanici_ana_menu(data, kullanici):
     while True:
         print("\n=== ANA MENÜ ===")
@@ -450,3 +420,4 @@ def ana_menu():
 
 if __name__ == "__main__":
     ana_menu()
+
