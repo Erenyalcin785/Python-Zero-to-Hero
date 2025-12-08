@@ -80,19 +80,8 @@ Lütfen Yapmak İstediğiniz İşlemi Seçiniz...""".format(
         else:
             print("Lütfen Geçerli Bir Giriş Yapınız!")
 
-       # doğru şifre + işlemden sonra şifre döngüsünden çık
-
-    # elif Sifre != TakılanKart.get("Kartsifre") and hak != 0:
-    #      print("Hatalı Şifre Girdiniz. Kalan Hakkınız {}".format(hak))
-    #      hak -=1
-
-    # elif Sifre != TakılanKart.get("Kartsifre") and hak == 0:
-    #      # Son hakkı da yanlış girerse burada sadece mesaj verelim,
-    #      # exit() ile programı bitirmeyelim ki for-else'ye düşebilesin.
-    #      print("Kartınızı 3 defa Hatalı Girdiğinizden Dolayı Kartınız Bloke Olmuştur.")
-    #    # exit() KALDIRILDI
-
     else:
      # Buraya sadece for döngüsü HİÇ break görmeden biterse gelinir.
      # Yani: 3 denemenin HİÇBİRİNDE doğru şifre girilmemişse.
      print("Lütfen Geçerli Bir Giriş Yapınız!")
+
