@@ -281,7 +281,6 @@ def ticket_id_olustur(data):
     while True:
         yeni = random.randint(1, 999999)
 
-        # Eğer bu ID daha önce kullanılmamışsa geri döndür
         if yeni not in mevcut:
             return yeni
 
@@ -417,6 +416,7 @@ def ana_menu():
 
 if __name__ == "__main__":
     ana_menu()
+
 
 
 
