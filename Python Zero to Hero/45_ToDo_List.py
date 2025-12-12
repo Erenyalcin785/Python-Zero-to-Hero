@@ -278,7 +278,6 @@ def ticket_id_olustur(data):
     for t in data["ticketlar"]:
         mevcut.append(t["id"])
 
-    # Şimdi yeni ID 
     while True:
         yeni = random.randint(1, 999999)
 
@@ -418,5 +417,6 @@ def ana_menu():
 
 if __name__ == "__main__":
     ana_menu()
+
 
 
