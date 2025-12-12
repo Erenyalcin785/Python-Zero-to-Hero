@@ -6,7 +6,6 @@ import random
 
 DB_PATH = "C:/Users/MONSTER/Desktop/veritabani.json"
 
-#  VERİYİ YÜKLE / KAYDET
 def veriyi_yukle():
     try:
         with open(DB_PATH, "r", encoding="utf-8") as f:
@@ -27,7 +26,6 @@ def veriyi_kaydet(data):
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 
-#  KONTROL FONKSİYONLARI
 def kullanici_adi_var_mi(data, kullanici_adi):
     for k in data["kullanicilar"]:
         if k["kullanici_adi"] == kullanici_adi:
@@ -420,4 +418,5 @@ def ana_menu():
 
 if __name__ == "__main__":
     ana_menu()
+
 
